@@ -1,0 +1,25 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="primary">
+    <div style="display: flex;">
+      <ion-icon style="float: left; color:#FFF; font-size: 30px; margin-top: 10px; margin-left: 10px;" name="menu"
+                (click)="openMenu()"></ion-icon>
+      <ion-title>{{"Réclamation"}}</ion-title>
+    </div>
+
+  </ion-toolbar>
+</ion-header>
+<ion-content fullscreen class="ion-padding">
+
+  <ion-grid>
+    <ion-row>
+      <ion-input label="Message"
+                 label-placement="floating"
+                 fill="outline"
+                 [(ngModel)]="transaction.commantaire"
+      ></ion-input>
+    </ion-row>
+  </ion-grid>
+
+  <ion-button  (click)="send()" expand="block">Envoyer</ion-button>
+
+</ion-content>

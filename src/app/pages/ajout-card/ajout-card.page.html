@@ -1,0 +1,126 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="primary">
+    <div style="display: flex;">
+      <div>
+        <ion-icon style="float: left; color:#FFF; font-size: 30px; margin-top: 10px; margin-left: 10px;" name="menu"
+          (click)="openMenu()"></ion-icon>
+      </div>
+
+        <ion-title style="padding-left: 15px;">{{editMode==false?"Ajout":"Modification"}} de carte</ion-title>
+    </div>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content fullscreen class="ion-padding">
+
+    <div class="main_div">
+
+      <div class="header_section">
+        <div class="card__logo">STB BANK</div>
+        <div class="card__chip">
+        <svg class="card__chip-lines" role="img" width="20px" height="20px" viewBox="0 0 100 100" aria-label="Chip">
+        <g opacity="0.8">
+        <polyline points="0,50 35,50" fill="none" stroke="#000" stroke-width="2" />
+        <polyline points="0,20 20,20 35,35" fill="none" stroke="#000" stroke-width="2" />
+        <polyline points="50,0 50,35" fill="none" stroke="#000" stroke-width="2" />
+        <polyline points="65,35 80,20 100,20" fill="none" stroke="#000" stroke-width="2" />
+        <polyline points="100,50 65,50" fill="none" stroke="#000" stroke-width="2" />
+        <polyline points="35,35 65,35 65,65 35,65 35,35" fill="none" stroke="#000" stroke-width="2" />
+        <polyline points="0,80 20,80 35,65" fill="none" stroke="#000" stroke-width="2" />
+        <polyline points="50,100 50,65" fill="none" stroke="#000" stroke-width="2" />
+        <polyline points="65,65 80,80 100,80" fill="none" stroke="#000" stroke-width="2" />
+        </g>
+        </svg>
+        <div class="card__chip-texture"></div>
+        </div>
+      </div>
+
+      <div class="footer_div">
+        <h1 class="card_number">{{numer1}} {{numer2}} {{numer3}} {{numer4}}</h1>
+
+        <div class="valid_div">
+
+          <div class="child_div">
+
+            <p>valid thru</p>
+            <p>{{month?month:null}}/{{year}}</p>
+          </div>
+        </div>
+
+        <div class="user_details">
+          <p>{{name | uppercase}}</p>
+
+          <div class="visa">
+            <div class="card__vendor" role="img" aria-labelledby="card-vendor">
+              <span id="card-vendor" class="card__vendor-sr">Mastercard</span>
+              </div>          </div>
+        </div>
+      </div>
+
+
+  </div>
+  <br>
+  <div class="checkout">
+<!--fontawesome-->
+
+<!--google fonts-->
+
+
+
+
+
+    <div class="form" autocomplete="off" novalidate>
+      <fieldset>
+        <label for="card-number">Card Number</label>
+        <input [(ngModel)]="numer1" type="num" id="card-number" class="input-cart-number" maxlength="4" />
+        <input  [(ngModel)]="numer2" type="num" id="card-number-1" class="input-cart-number" maxlength="4" />
+        <input [(ngModel)]="numer3" type="num" id="card-number-2" class="input-cart-number" maxlength="4" />
+        <input  [(ngModel)]="numer4" type="num" id="card-number-3" class="input-cart-number" maxlength="4" />
+      </fieldset>
+      <fieldset>
+        <label for="card-holder">Card holder</label>
+        <input [(ngModel)]="name" type="text" id="card-holder" />
+      </fieldset>
+      <fieldset class="fieldset-expiration">
+        <label for="card-expiration-month">Expiration date</label>
+        <div class="select">
+          <select [(ngModel)]="month"  id="card-expiration-month">
+            <option>01</option>
+            <option>02</option>
+            <option>03</option>
+            <option>04</option>
+            <option>05</option>
+            <option>06</option>
+            <option>07</option>
+            <option>08</option>
+            <option>09</option>
+            <option>10</option>
+            <option>11</option>
+            <option>12</option>
+          </select>
+        </div>
+        <div class="select">
+          <select [(ngModel)]="year"  id="card-expiration-year">
+            <option>2024</option>
+            <option>2025</option>
+            <option>2026</option>
+            <option>2027</option>
+            <option>2028</option>
+          </select>
+        </div>
+      </fieldset>
+      <fieldset class="fieldset-ccv">
+        <label for="card-ccv">Client</label>
+        <div class="select" (change)="setUser($event)">
+          <select [(ngModel)]="user"  id="card-expiration-year">
+            <option *ngFor="let element of listUser">{{element.nom}} {{element.prenom}} </option>
+          </select>
+        </div>
+            </fieldset>
+      <button *ngIf="editMode===false" (click)="saveCard()" class="btn"><i class="fa fa-lock"></i> submit</button>
+      <button *ngIf="editMode===true" (click)="editCard()" class="btn"><i class="fa fa-lock"></i> Mofifier</button>
+    </div>
+  </div>
+
+
+</ion-content>

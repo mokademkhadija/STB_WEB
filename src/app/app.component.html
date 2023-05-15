@@ -1,0 +1,36 @@
+<ion-app>
+
+  <ion-menu side="start" menuId="first" contentId="main">
+    <ion-content>
+      <div class="menu-header-bg"></div>
+      <div>
+        <div class="container" class="header-content">
+          <div class="d-flex justify-content-center h-100">
+            <div class="image_outer_container">
+              <div class="image_inner_container">
+                <img src="assets/avatar.png">
+              </div>
+            </div>
+          </div>
+          <ion-label>
+            <h2 style="font-weight: bold;" >{{user.nom}}  {{user.prenom}}  </h2>
+            </ion-label>
+          <hr>
+        </div>
+      </div>
+
+      <ion-list id="listmenu" class="menu-items" lines="none" >
+        <div *ngFor="let element of menuList">
+          <ion-item (click)='routerGo(element.path)' >
+            <ion-icon [name]="element.icon"></ion-icon> {{element.title}}
+          </ion-item>
+        </div>
+      </ion-list>
+
+    </ion-content>
+  </ion-menu>
+
+    <ion-router-outlet id="main"></ion-router-outlet>
+
+  <!-- End Menu -->
+</ion-app>

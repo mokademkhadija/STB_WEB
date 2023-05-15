@@ -1,0 +1,21 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="primary">
+    <div style="display: flex;">
+      <ion-icon style="float: left; color:#FFF; font-size: 30px; margin-top: 10px; margin-left: 10px;" name="menu"
+                (click)="openMenu()"></ion-icon>
+      <ion-title>{{"Liste des transaction"}}</ion-title>
+    </div>
+
+  </ion-toolbar>
+</ion-header>
+<ion-content fullscreen class="ion-padding">
+  <ion-item button detail="true" *ngFor="let element of listTransfer">
+    <ion-icon color="success" name="card-outline"></ion-icon>
+    <ion-label style="    padding-left: 10px;">
+      <h3>Compte :{{element.compte_recev}}</h3>
+      <p> Date : {{element.date.substr(0,10)}}</p>
+      <p>Monatnt :{{element.montant}}</p>
+    </ion-label>
+  </ion-item>
+
+</ion-content>

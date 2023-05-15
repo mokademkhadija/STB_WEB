@@ -1,0 +1,106 @@
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" />
+
+<ion-content>
+  <div >
+    <ion-icon style="float: left; color:#FFF; font-size: 30px; margin-top: 10px; margin-left: 10px;" name="menu"
+      (click)="openMenu()"></ion-icon>
+  </div>
+
+  <div class="header" style="text-align: center;">
+    <h2>Liste des client {{isConten===1?'contentieux':''}}</h2>
+    <ion-icon *ngIf="isConten!==1" (click)="ajoutClient()" style=" color:#FFF;     position: absolute;
+    top: 48px;
+    right: 21px;
+    height: 29px;
+    width: 32px;" name="add-circle-outline"></ion-icon>
+
+  </div>
+  <br>
+
+  <ion-item button detail="true" *ngFor="let element of listUser" (click)="openDetails(element.id)">
+    <ion-icon  [color]="element.solde>0?'success':'danger'" name="person-circle-outline"></ion-icon>
+        <ion-label style="    padding-left: 10px;">
+      <h3>Nom et prénom : {{element.nom}}  {{element.prenom}}</h3>
+      <p> Date naissance : {{element?.date_naissance?.substr(0,10)}}</p>
+      <p [style]="element.solde>0?'success':red">Solde : {{element.solde}} TND</p>
+    </ion-label>
+  </ion-item>
+
+<!--  // user -->
+<!--  // compte -->
+<!--  //historique -->
+<!--  // notification -->
+
+<!--  <ion-item button detail="true">-->
+<!--    <ion-label>-->
+<!--      <h3>Virement bancaire : STB BANK</h3>-->
+<!--      <p> Date : 02-02-2023</p>-->
+<!--      <p>Monatnt : 120 TND</p>-->
+<!--    </ion-label>-->
+<!--  </ion-item>-->
+<!--  <ion-item button detail="true">-->
+<!--    <ion-label>-->
+<!--      <h3>Virement bancaire : STB BANK</h3>-->
+<!--      <p> Date : 02-02-2023</p>-->
+<!--      <p>Monatnt : 120 TND</p>-->
+<!--    </ion-label>-->
+<!--  </ion-item>-->
+<!--  <ion-item detail="true">-->
+<!--    <ion-card>-->
+<!--      <ion-card-header>-->
+<!--        <ion-card-title>Virement bancaire</ion-card-title>-->
+<!--        <ion-card-subtitle>STB BANK</ion-card-subtitle>-->
+<!--      </ion-card-header>-->
+
+<!--      <ion-card-content>-->
+<!--        Here's a small text description for the card content. Nothing more, nothing less.-->
+<!--      </ion-card-content>-->
+<!--    </ion-card>-->
+<!--  </ion-item>-->
+
+
+
+<!--  <ion-item>-->
+<!--    <ion-card>-->
+<!--      <ion-card-header>-->
+<!--        <ion-card-title>Virement bancaire</ion-card-title>-->
+<!--        <ion-card-subtitle>STB BANK</ion-card-subtitle>-->
+<!--      </ion-card-header>-->
+
+<!--      <ion-card-content>-->
+<!--        Here's a small text description for the card content. Nothing more, nothing less.-->
+<!--      </ion-card-content>-->
+<!--    </ion-card>-->
+<!--  </ion-item>-->
+
+
+
+<!--  <table style="width: 100%; text-align:center;">-->
+<!--    <tr id="head">-->
+<!--      <td>  Montant </td>-->
+<!--      <td>  Description </td>-->
+<!--      <td>  Date </td>-->
+<!--    </tr>-->
+<!--    <br>-->
+
+<!--    <tr>-->
+<!--      <td>  120 TND</td>-->
+<!--      <td>  Virement bancaire </td>-->
+<!--      <td>  21/03/2023 </td>-->
+<!--    </tr>-->
+
+<!--    <tr>-->
+<!--      <td>  1650 TND </td>-->
+<!--      <td>  Virement bancaire </td>-->
+<!--      <td>  20/03/2023 </td>-->
+<!--    </tr>-->
+
+<!--    <tr>-->
+<!--      <td>  830 TND </td>-->
+<!--      <td>  Retrait d'argent </td>-->
+<!--      <td>  18/03/2023 </td>-->
+<!--    </tr>-->
+<!--  </table>-->
+
+
+</ion-content>

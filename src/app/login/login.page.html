@@ -1,0 +1,63 @@
+<ion-content fullscreen class="ion-padding">
+  <ion-grid style="text-align:center; margin : 0 auto; height:50px;">
+    <ion-row style="min-height: 50px">
+      <ion-col size="12" style="height:50px;">
+        <p
+          style="font-size:20px; text-decoration-color:rgb(38, 132, 255); padding-left:0px; padding-right:0px;">
+          Se connecter</p>
+      </ion-col>
+
+    </ion-row>
+  </ion-grid>
+
+  <br> <br> <br> <br>
+
+  <div class="slide">
+    <img src="./assets/logo.png"
+         style="width:200px;  margin-top:-20px; margin-bottom: -20px;"/>
+
+    <br> <br> <br> <br>
+    <ion-grid>
+      <ion-row>
+            <ion-input label="email"
+                       type="email"
+                       label-placement="floating"
+                       fill="outline"
+                       [(ngModel)]="user.email"
+                       helperText="Enter a valid email"
+                       errorText="Invalid email"
+            ></ion-input>
+
+
+            <!--            <input type="email" class="input-name" placeholder="Email" name="email" id="email" #Email="ngModel"-->
+            <!--                   [(ngModel)]="user.email" required style="width:95%"/>-->
+
+      </ion-row>
+    </ion-grid>
+
+    <ion-grid>
+      <ion-row>
+            <ion-input label="password"
+                       label-placement="floating"
+                       type="password"
+                       fill="outline"
+                       [(ngModel)]="user.password"
+                       helperText="Enter a valid email"
+                       errorText="Invalid email"
+            ></ion-input>
+
+
+            <!--            <input type="password" class="input-name" placeholder="Mot de passe" name="password" id="password"-->
+            <!--                   #Password="ngModel" [(ngModel)]="user.password" required style="width:95%"/>-->
+      </ion-row>
+    </ion-grid>
+
+
+    <ion-button (click)="connecter()" expand="block">Se connecter</ion-button>
+
+<!--    <div class="google-btn" style="background-color: rgb(63, 161, 253);">-->
+<!--      <p class="btn-text"><b style="color: #fff; font-weight: bold;" (click)="connecter()">Connecter</b></p>-->
+<!--    </div>-->
+
+  </div>
+</ion-content>

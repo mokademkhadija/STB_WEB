@@ -1,0 +1,63 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="primary">
+    <div style="display: flex;">
+      <ion-icon style="float: left; color:#FFF; font-size: 30px; margin-top: 10px; margin-left: 10px;" name="menu"
+                (click)="openMenu()"></ion-icon>
+      <ion-title>{{"Tansfer vers un autre compte"}}</ion-title>
+    </div>
+
+  </ion-toolbar>
+</ion-header>
+<ion-content fullscreen class="ion-padding">
+
+  <ion-grid>
+    <ion-row>
+      <ion-input label="Nom destinataire"
+                 label-placement="floating"
+                 fill="outline"
+                 [(ngModel)]="transaction.nom"
+      ></ion-input>
+    </ion-row>
+  </ion-grid>
+
+  <ion-grid>
+    <ion-row>
+      <ion-input label="Montant"
+                 label-placement="floating"
+                 fill="outline"
+                 type="number"
+                 max="16"
+                 [(ngModel)]="transaction.montant"
+
+      ></ion-input>
+    </ion-row>
+  </ion-grid>
+  <ion-grid>
+    <ion-row>
+      <ion-input
+        #input
+        label="Numero compte"
+        class="custom"
+        label-placement="floating"
+        fill="outline"
+        [helperText]="(input.value+'').length!=16?'Invalid numéro':null"
+        [counter]="true"
+        [maxlength]="16"
+        [(ngModel)]="transaction.compte_recev"
+      ></ion-input>
+    </ion-row>
+  </ion-grid>
+  <ion-grid>
+    <ion-row>
+      <ion-input label="Commentaire"
+                 label-placement="floating"
+                 fill="outline"
+                 [(ngModel)]="transaction.commentaire"
+
+      ></ion-input>
+    </ion-row>
+  </ion-grid>
+
+  <ion-button  (click)="send()" expand="block">Envoyer</ion-button>
+
+</ion-content>

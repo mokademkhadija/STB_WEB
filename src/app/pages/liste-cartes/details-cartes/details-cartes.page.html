@@ -1,0 +1,82 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="primary">
+    <div style="display: flex;">
+      <ion-back-button
+      ></ion-back-button>
+      <ion-title>Détails du carte</ion-title>
+    </div>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content fullscreen class="ion-padding" *ngIf="user">
+  <br>
+  <ion-grid>
+    <ion-row>
+
+      <ion-col class="ion_col_title" >
+        <span >
+          Détails carte
+        </span>
+
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col class="ion-col">
+        numero
+      </ion-col>
+      <ion-col>{{user.numero}}</ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col class="ion-col">
+        sodle
+      </ion-col>
+      <ion-col>{{user.solde}} TND</ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col class="ion-col">
+        Date d'expiration
+      </ion-col>
+      <ion-col>{{user.dateExpiration.substr(0,10)}}</ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col class="ion-col">
+        Clinet
+      </ion-col>
+      <ion-col>{{userCompte.nom}}  {{userCompte.prenom}}</ion-col>
+    </ion-row>
+
+
+
+    <ion-row>
+      <ion-col class="ion-col">
+        Status
+      </ion-col>
+      <ion-col> {{user.valid===true?"Active":"Non active"}}</ion-col>
+    </ion-row>
+
+
+  </ion-grid>
+  <ion-button
+    (click)="Modifier()">
+    Modifier
+  </ion-button>
+  <ion-button
+    (click)="Supprimer()"
+  >
+    Supprimer
+  </ion-button>
+
+  <ion-button
+    (click)="active(true)"
+  >
+    Activer carte
+  </ion-button>
+
+  <ion-button
+    (click)="active(false)"
+  >
+    Désactiver carte
+  </ion-button>
+
+
+</ion-content>

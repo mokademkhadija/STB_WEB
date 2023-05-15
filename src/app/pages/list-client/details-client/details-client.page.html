@@ -1,0 +1,96 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="primary">
+    <div style="display: flex;">
+      <ion-back-button
+      ></ion-back-button>
+        <ion-title>Détails du client</ion-title>
+    </div>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content fullscreen class="ion-padding" *ngIf="user">
+  <br>
+  <ion-grid>
+    <ion-row>
+      
+      <ion-col class="ion_col_title" >
+        <span >
+          Détails client
+        </span>
+        
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col class="ion-col">
+          Nom        
+      </ion-col>
+      <ion-col>{{user.nom}}</ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col class="ion-col">
+          Prénom        
+      </ion-col>
+      <ion-col>{{user.prenom}}</ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col class="ion-col">
+          Date de naissance        
+      </ion-col>
+      <ion-col>{{user.date_naissance.substr(0,10)}}</ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col class="ion-col">
+          Email        
+      </ion-col>
+      <ion-col>{{user.email}}</ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col class="ion-col">
+          Adresse        
+      </ion-col>
+      <ion-col>{{user.adresse}}</ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col class="ion-col">
+          Numéro        
+      </ion-col>
+      <ion-col>{{user.numero}}</ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col class="ion-col">
+          Solde        
+      </ion-col>
+      <ion-col>{{user.solde}}</ion-col>
+    </ion-row>
+
+
+    <ion-row>
+      <ion-col class="ion-col">
+          Role        
+      </ion-col>
+      <ion-col>{{user.role}}</ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col class="ion-col">
+          Status        
+      </ion-col>
+      <ion-col>{{user.active?"Active":"Non active"}}</ion-col>
+    </ion-row>
+
+    
+  </ion-grid>
+  <ion-button
+  (click)="Modifier()">
+    Modifier
+  </ion-button>    
+  <ion-button
+  (click)="Supprimer()"
+  >
+    Supprimer
+  </ion-button>   
+
+ 
+  
+</ion-content>
